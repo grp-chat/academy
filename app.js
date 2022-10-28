@@ -63,17 +63,17 @@ class GridSystem {
         //this.p1 = { x: 1, y: 1, lable: 2, id: this.extraArr[0], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0, storeSteps: 1000 };
         // this.playersArr = [this.p1, this.p2, this.p3, this.p4, this.p5, this.p6, this.p7, this.p8, this.p9, this.p10];
         this.playersArr = [
-            this.p1 = new Player({x: 17, y: 18, lable: 2, id: this.extraArr[0], area: "area1", color: "grey"}),
+            this.p1 = new Player({x: 20, y: 9, lable: 2, id: this.extraArr[0], area: "area1", color: "grey"}),
 
-            this.p2 = new Player({x: 3, y: 10, lable: 3, id: this.extraArr[1], area: "area1", color: "springgreen"}),
-            this.p3 = new Player({x: 4, y: 10, lable: 4, id: this.extraArr[2], area: "area1", color: "orange"}),
-            this.p4 = new Player({x: 5, y: 10, lable: 5, id: this.extraArr[3], area: "area1", color: "lightblue"}),
-            this.p5 = new Player({x: 6, y: 10, lable: 6, id: this.extraArr[4], area: "area1", color: "lightyellow"}),
-            this.p6 = new Player({x: 7, y: 10, lable: 7, id: this.extraArr[5], area: "area1", color: "deepskyblue"}),
-            this.p7 = new Player({x: 3, y: 11, lable: 8, id: this.extraArr[6], area: "area1", color: "white"}),
-            this.p8 = new Player({x: 3, y: 12, lable: 9, id: this.extraArr[7], area: "area1", color: "magenta"}),
-            this.p9 = new Player({x: 3, y: 13, lable: 10, id: this.extraArr[8], area: "area1", color: "teal"}),
-            this.p10 = new Player({x: 3, y: 14, lable: 11, id: this.extraArr[9], area: "area1", color: "yellow"})
+            this.p2 = new Player({x: 2, y: 8, lable: 3, id: this.extraArr[1], area: "area1", color: "springgreen"}),
+            this.p3 = new Player({x: 2, y: 9, lable: 4, id: this.extraArr[2], area: "area1", color: "orange"}),
+            this.p4 = new Player({x: 2, y: 10, lable: 5, id: this.extraArr[3], area: "area1", color: "lightblue"}),
+            this.p5 = new Player({x: 2, y: 11, lable: 6, id: this.extraArr[4], area: "area1", color: "lightyellow"}),
+            this.p6 = new Player({x: 2, y: 12, lable: 7, id: this.extraArr[5], area: "area1", color: "deepskyblue"}),
+            this.p7 = new Player({x: 30, y: 8, lable: 8, id: this.extraArr[6], area: "area1", color: "white"}),
+            this.p8 = new Player({x: 30, y: 9, lable: 9, id: this.extraArr[7], area: "area1", color: "magenta"}),
+            this.p9 = new Player({x: 30, y: 10, lable: 10, id: this.extraArr[8], area: "area1", color: "teal"}),
+            this.p10 = new Player({x: 30, y: 11, lable: 11, id: this.extraArr[9], area: "area1", color: "yellow"})
         ];
 
         this.itemsArr = [
@@ -198,7 +198,7 @@ class GridSystem {
         this.playersArr.forEach((player) => {
             this.transitionToAnotherArea5(levelSequence[level], player);
             player.area = levelSequence[level];
-            player.steps = 0;
+            //player.steps = 0;
         });
 
     }
@@ -272,6 +272,9 @@ io.sockets.on('connection', function (sock) {
         //const message = "Mission: This is a test mission, testing mission display.............";
         const getNum = data;
         io.emit('missionObject', getNum);
+    });
+    sock.on('onScreen', data => {
+        io.emit('onScreen', data);
     });
 
     sock.on('useItem', (data) => {

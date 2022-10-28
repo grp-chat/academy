@@ -79,13 +79,6 @@ let missionObjectArr = [];
 let matrixLengthXAxis = 0;
 let matrixLengthYAxis = 0;
 
-// let text = "Text here Text here Text here Text here Text here Text here Text here Text here";
-// let i = 1;
-// let char;
-// const fps = 50;
-
-// const studentsArr = ["TCR", "LOK", "KSY", "KN", "JT", "CJH", "CED", "KX", "TJY", "LSH"];
-
 //GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 
 function createChatDivs() {
@@ -278,7 +271,13 @@ sock.on('missionObject', data => {
     missionObject.typeWriterLarge();
     missionObjectArr.push(missionObject);
     sock.emit('refreshCanvas');
-
+});
+sock.on('onScreen', data => {
+    missionObjectArr = [];
+    const missionObject = new ChatObject({ message2: data });
+    missionObject.typeWriterLarge();
+    missionObjectArr.push(missionObject);
+    sock.emit('refreshCanvas');
 });
 
 sock.on('loadMatrix', (data) => {
@@ -290,6 +289,10 @@ sock.on('loadMatrix', (data) => {
 
     const timerObject = new ChatObject({ message: "" });
     timerObject.runTimer();
+
+    missionObjectArr.forEach(mission => {
+        mission.justPrintLarge();
+    });
     
 });
 

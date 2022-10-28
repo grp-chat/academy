@@ -8,7 +8,6 @@ class fixedCommand {
         //var extractNickname = message.slice(4).replace(/[^A-Z]+/g, "");
         if (nickname != "TCR") { return }
         if (message.slice(0, this.prefix.length) != this.prefix) { return }
-        //if (studentsArr.includes(extractNickname) === false) {return}
 
         sock.emit(this.sockEmitFlag);
 
@@ -28,6 +27,20 @@ class fixedCommand {
         }
 
 
+    }
+}
+class messageCommand {
+    constructor(prefix, sockEmitFlag) {
+        this.prefix = prefix;
+        this.sockEmitFlag = sockEmitFlag;
+    }
+
+    executeCommand(message) {
+        if (nickname != "TCR") { return }
+        if (message.slice(0, this.prefix.length) != this.prefix) { return }
+
+        const slicedMessage = message.slice(this.prefix.length);
+        sock.emit(this.sockEmitFlag, slicedMessage);
     }
 }
 class localFixedCommand {
@@ -168,6 +181,7 @@ const allCommands = [
     new numAndIdCommand("TCR: good ", 'sendPW'),
     new numAndIdCommand("TCR: nope ", 'failed'),
     new numAndIdCommand("TCR: set team ", 'setPlayerTeam'),
+    new messageCommand("TCR: on screen ", 'onScreen'),
     new fixedCommand("TCR: mind control off", 'mindControlOff'),
     new fixedCommand("TCR: go next level", 'goToNextMap'),
     new fixedCommand("TCR: restart level", 'restartLevel'),
