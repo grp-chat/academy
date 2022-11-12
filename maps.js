@@ -39,17 +39,17 @@ class AllMatrixes {
                 //{x:20,y:16},{x:20,y:17},{x:20,y:18},
             ],
             signBoards: [
-                {x: 2*29, y: 5*29, sign: "<13 Seconds"},
-                {x: 9*29, y: 5*29, sign: "14-15 Seconds"},
-                {x: 15*29, y: 5*29, sign: "16-17 seconds"},
-                {x: 20*29, y: 5*29, sign: "18-19 seconds"},
-                {x: 27*29, y: 5*29, sign: "20-21 seconds"},
+                {x: 2*29, y: 5*29, sign: "<8 Seconds"},
+                {x: 9*29, y: 5*29, sign: "9 Seconds"},
+                {x: 15*29, y: 5*29, sign: "10 - 13 seconds"},
+                {x: 20*29, y: 5*29, sign: "14 seconds"},
+                {x: 27*29, y: 5*29, sign: "15 seconds"},
 
-                {x: 2*29, y: 14*29, sign: "22-23 seconds"},
-                {x: 9*29, y: 14*29, sign: "24-25 seconds"},
-                {x: 15*29, y: 14*29, sign: "26-27 seconds"},
-                {x: 20*29, y: 14*29, sign: "28-29 seconds"},
-                {x: 27*29, y: 14*29, sign: ">30 seconds"},
+                {x: 2*29, y: 14*29, sign: "16 seconds"},
+                {x: 9*29, y: 14*29, sign: "17 seconds"},
+                {x: 15*29, y: 14*29, sign: "18 seconds"},
+                {x: 20*29, y: 14*29, sign: "19 seconds"},
+                {x: 27*29, y: 14*29, sign: ">20 seconds"},
             ]
 
         };
